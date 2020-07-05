@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public final class GameBoardUnitTest {
 
@@ -30,6 +31,13 @@ public final class GameBoardUnitTest {
         assertEquals(
                 playerId,
                 gameBoard.getGameBoardPlayerByPosition(position)
+        );
+    }
+
+    @Test
+    public void it_should_return_false_if_board_is_not_full() {
+        assertFalse(
+                gameBoard.isBoardFull()
         );
     }
 
