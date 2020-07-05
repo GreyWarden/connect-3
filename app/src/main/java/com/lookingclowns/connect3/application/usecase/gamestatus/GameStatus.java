@@ -24,6 +24,7 @@ public final class GameStatus {
             PositionIsTakenException,
             PositionAlreadySelectedByPlayerException {
         gameBoard.addToken(position, activePlayer);
+        setWinnerPlayer();
         changeActivePlayer();
     }
 
