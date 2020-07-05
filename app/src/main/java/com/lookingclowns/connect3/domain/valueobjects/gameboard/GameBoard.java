@@ -47,4 +47,13 @@ public final class GameBoard {
     public int getGameBoardPlayerByPosition(int position) {
         return gameBoard[position];
     }
+
+    public boolean isBoardFull() {
+        for (int value : this.gameBoard) {
+            if (value == -1) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
