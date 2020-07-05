@@ -1,5 +1,6 @@
 package com.lookingclowns.connect3.tests.domain.valueobjects.gameboard;
 
+import com.lookingclowns.connect3.domain.exceptions.playerisnotallowed.PlayerIsNotAllowedException;
 import com.lookingclowns.connect3.domain.valueobjects.gameboard.GameBoard;
 
 import org.junit.Before;
@@ -17,8 +18,7 @@ public final class GameBoardUnitTest {
     }
 
     @Test
-    public void it_should_create_create_token_in_correct_place_of_array() {
-
+    public void it_should_create_create_token_in_correct_place_of_array() throws PlayerIsNotAllowedException {
         int position = 3;
         int playerId = 1;
         gameBoard.addToken(position, playerId);
@@ -26,5 +26,12 @@ public final class GameBoardUnitTest {
                 playerId,
                 gameBoard.getGameBoardPlayerByPosition(position)
         );
+    }
+
+    @Test(expected = PlayerIsNotAllowedException.class)
+    public void it_should_throw_an_exception_if_player_is_not_allowed() throws PlayerIsNotAllowedException {
+        int position = 3;
+        int playerId = 2;
+        gameBoard.addToken(position, playerId);
     }
 }
