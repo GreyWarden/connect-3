@@ -14,8 +14,12 @@ public final class GameStatus {
         activePlayer = 0;
     }
 
-    public void addToken(int position) throws PlayerIsNotAllowedException, PositionIsTakenException, PositionAlreadySelectedByPlayerException {
+    public void addToken(int position)
+            throws PlayerIsNotAllowedException,
+            PositionIsTakenException,
+            PositionAlreadySelectedByPlayerException {
         gameBoard.addToken(position, activePlayer);
+        changeActivePlayer();
     }
 
     public int getActivePlayer() {
@@ -27,6 +31,6 @@ public final class GameStatus {
     }
 
     private void changeActivePlayer() {
-
+        activePlayer = activePlayer == 0 ? 1 : 0;
     }
 }
