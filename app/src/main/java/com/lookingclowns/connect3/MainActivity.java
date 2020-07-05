@@ -34,12 +34,15 @@ public class MainActivity extends AppCompatActivity {
             this.gameStatus.addToken(counterTag);
         } catch (PlayerIsNotAllowedException playerIsNotAllowed) {
             Log.d("Error", "Error que no se esperaba porque no se debería dar");
+            return;
         } catch (PositionIsTakenException positionTakenException) {
             Toast.makeText(this, "The spot is already taken", Toast.LENGTH_SHORT)
                     .show();
+            return;
         } catch (PositionAlreadySelectedByPlayerException positionAlreadySelectedByPlayerException) {
             Toast.makeText(this, "You already chose that spot", Toast.LENGTH_SHORT)
                     .show();
+            return;
         }
         counter.setImageResource(this.getCounterSrc(this.gameStatus.getActivePlayer()));
         counter.setTranslationY(-500);
