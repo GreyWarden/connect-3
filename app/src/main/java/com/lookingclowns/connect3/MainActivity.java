@@ -1,5 +1,6 @@
 package com.lookingclowns.connect3;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("StringFormatMatches")
     private String createText() {
         if (gameStatus.getWinnerPlayer() == -1) {
             return getResources().getString(R.string.end_game_draw);
