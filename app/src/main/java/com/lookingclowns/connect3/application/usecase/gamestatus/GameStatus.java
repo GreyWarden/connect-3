@@ -7,6 +7,8 @@ import com.lookingclowns.connect3.domain.valueobjects.gameboard.GameBoard;
 
 public final class GameStatus {
     private GameBoard gameBoard;
+
+    // RED = 0, YELLOW = 1
     private int activePlayer;
 
     public GameStatus(GameBoard gameBoard) {
