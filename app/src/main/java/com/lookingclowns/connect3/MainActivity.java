@@ -65,11 +65,11 @@ public class MainActivity extends AppCompatActivity {
 
     private String createText() {
         if (gameStatus.getWinnerPlayer() == -1) {
-            return "It is a draw! Good luck next time!";
+            return getResources().getString(R.string.end_game_draw);
         }
         return String.format(
-                "Player #%s is the winner! Congratulations!",
-                gameStatus.getWinnerPlayer() + 1
+                getResources().getString(R.string.end_game_player_won),
+                (gameStatus.getWinnerPlayer() + 1)
         );
     }
 

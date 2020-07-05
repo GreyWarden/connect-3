@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Conecta 3</string>
+    <string name="retryButtonText" translatable="false">¡Juega de nuevo!</string>
+    <string name="end_game_player_won">¡El jugador n°%s ha ganado! ¡Enhorabuena!</string>
+    <string name="end_game_draw">¡Es un empate! ¡Más suerte la próxima vez!</string>
+</resources>
