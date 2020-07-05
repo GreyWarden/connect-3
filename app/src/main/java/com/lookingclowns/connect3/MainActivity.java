@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.gridlayout.widget.GridLayout;
 
 import com.lookingclowns.connect3.application.usecase.gamestatus.GameStatus;
 import com.lookingclowns.connect3.domain.exceptions.playerisnotallowed.PlayerIsNotAllowedException;
@@ -43,11 +44,19 @@ public class MainActivity extends AppCompatActivity {
             Log.d("Error", "Error que no se esperaba porque no se debería dar");
             return;
         } catch (PositionIsTakenException positionTakenException) {
-            Toast.makeText(this, "The spot is already taken", Toast.LENGTH_SHORT)
+            Toast.makeText(
+                    this,
+                    getResources().getText(R.string.spot_already_taken),
+                    Toast.LENGTH_SHORT
+            )
                     .show();
             return;
         } catch (PositionAlreadySelectedByPlayerException positionAlreadySelectedByPlayerException) {
-            Toast.makeText(this, "You already chose that spot", Toast.LENGTH_SHORT)
+            Toast.makeText(
+                    this,
+                    getResources().getText(R.string.spot_chosen_by_active_player),
+                    Toast.LENGTH_SHORT
+            )
                     .show();
             return;
         }
@@ -86,14 +95,10 @@ public class MainActivity extends AppCompatActivity {
         finishedGameText.setText("");
         finishedGameText.setAlpha(0);
         retryButton.setAlpha(0);
-        ((ImageView) findViewById(R.id.firstPiece)).setImageDrawable(null);
-        ((ImageView) findViewById(R.id.secondPiece)).setImageDrawable(null);
-        ((ImageView) findViewById(R.id.thirdPiece)).setImageDrawable(null);
-        ((ImageView) findViewById(R.id.forthPiece)).setImageDrawable(null);
-        ((ImageView) findViewById(R.id.fifthPiece)).setImageDrawable(null);
-        ((ImageView) findViewById(R.id.sixthPiece)).setImageDrawable(null);
-        ((ImageView) findViewById(R.id.seventhPiece)).setImageDrawable(null);
-        ((ImageView) findViewById(R.id.eighthPiece)).setImageDrawable(null);
-        ((ImageView) findViewById(R.id.ninthPiece)).setImageDrawable(null);
+        GridLayout gridLayout = findViewById(R.id.gridLayout);
+        for (int i = 0; i < gridLayout.getChildCount(); i++) {
+            ImageView counter = (ImageView) gridLayout.getChildAt(i);
+            counter.setImageDrawable(null);
+        }
     }
 }

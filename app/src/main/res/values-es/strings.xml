@@ -4,4 +4,6 @@
     <string name="retryButtonText" translatable="false">¡Juega de nuevo!</string>
     <string name="end_game_player_won">¡El jugador n°%s ha ganado! ¡Enhorabuena!</string>
     <string name="end_game_draw">¡Es un empate! ¡Más suerte la próxima vez!</string>
+    <string name="spot_already_taken">Esa posición ya está elegida</string>
+    <string name="spot_chosen_by_active_player">Ya has escogido esa posición</string>
 </resources>

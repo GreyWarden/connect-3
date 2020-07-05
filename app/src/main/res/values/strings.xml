@@ -3,4 +3,6 @@
     <string name="retryButtonText">Play again!</string>
     <string name="end_game_player_won">Player #%s is the winner! Congratulations!</string>
     <string name="end_game_draw">"It is a draw! Good luck next time!"</string>
+    <string name="spot_already_taken">The spot is already taken</string>
+    <string name="spot_chosen_by_active_player">You already chose that spot</string>
 </resources>
