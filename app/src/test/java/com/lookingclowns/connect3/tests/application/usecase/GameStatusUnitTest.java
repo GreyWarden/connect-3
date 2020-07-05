@@ -12,25 +12,41 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public final class GameStatusUnitTest {
-    GameStatus gameStatus;
+    private GameStatus gameStatus;
+    private int position;
 
     @Before
     public void setUp() {
         gameStatus = new GameStatus(new GameBoard());
+        position = 0;
     }
 
     @Test
     public void it_should_add_a_token() throws PlayerIsNotAllowedException, PositionIsTakenException, PositionAlreadySelectedByPlayerException {
-        int position = 0;
         int player = gameStatus.getActivePlayer();
         assertEquals(
                 -1,
-                gameStatus.getGameBoardPlayerByPosition(position)
+                gameStatus.getGameBoardPlayerByPosition(this.position)
         );
-        gameStatus.addToken(position);
+        gameStatus.addToken(this.position);
         assertEquals(
                 player,
-                gameStatus.getGameBoardPlayerByPosition(position)
+                gameStatus.getGameBoardPlayerByPosition(this.position)
+        );
+    }
+
+    @Test
+    public void it_should_change_the_active_player() throws PlayerIsNotAllowedException, PositionIsTakenException, PositionAlreadySelectedByPlayerException {
+        int currentActivePlayer = 0;
+        int nextActivePlayer = 1;
+        assertEquals(
+                currentActivePlayer,
+                gameStatus.getActivePlayer()
+        );
+        gameStatus.addToken(this.position);
+        assertEquals(
+                nextActivePlayer,
+                gameStatus.getActivePlayer()
         );
     }
 }
